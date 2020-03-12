@@ -9,7 +9,8 @@
         }
     ],
     "require": {
-        "php": ">=7.1.0"
+        "php": ">=7.1.0",        
+        "jz/jz-helper": "dev-master"
     },    
     "autoload": {
         "psr-4": {
