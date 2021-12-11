@@ -59,7 +59,7 @@ class File
      */
     public static function getFileList(string $path): array
     {
-        var_dump($path);
+        //var_dump($path);
         static::searchDir($path, static::$fileList);
         return static::$fileList;
     }
