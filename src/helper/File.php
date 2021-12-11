@@ -20,7 +20,7 @@ class File
     /**
      * @var array 文件列表
      */
-    protected static $fileList = [];
+    public static $fileList = [];
 
     /**
      * 递归扫描指定路径下的所有文件夹
@@ -42,10 +42,6 @@ class File
         }
 
         if (is_file($path)) {
-//            $new_path = str_replace(".png", "big.png", $path);
-//            copy($path, $new_path);
-//            unlink($path);
-//            $data[] = $new_path;
             $data[] = $path;
         }
     }
@@ -59,8 +55,28 @@ class File
      */
     public static function getFileList(string $path): array
     {
-        //var_dump($path);
         static::searchDir($path, static::$fileList);
         return static::$fileList;
+    }
+
+    /**
+     * 更改文件名称
+     * @param string $pattern 正则
+     * @param string $newName 文件新名称
+     * @return array
+     * @author：chen3jian
+     * @Date: 2021/12/11 20:35
+     * @since：v1.0
+     */
+    public static function rename(string $pattern, string $newName): array
+    {
+        $data = [];
+        foreach (static::$fileList as $key=>$fileName) {
+            $newFileName = preg_replace($pattern, $newName, $fileName);
+            if(copy($fileName, $newFileName)) unlink($fileName);
+            unset(static::$fileList[$key]);
+            $data[] = $newFileName;
+        }
+        return static::$fileList = $data;
     }
 }
