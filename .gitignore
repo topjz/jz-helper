@@ -1,3 +1,5 @@
-.idea
+/vendor/
+/.idea/
 *.iml
-
+composer.lock
+.phpunit.result.cache

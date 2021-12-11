@@ -10,16 +10,16 @@
 // +----------------------------------------------------------------------
 declare (strict_types = 1);
 
-namespace think;
+namespace jz;
 
 use ArrayAccess;
 use ArrayIterator;
 use Countable;
 use IteratorAggregate;
 use JsonSerializable;
-use think\contract\Arrayable;
-use think\contract\Jsonable;
-use think\helper\Arr;
+use jz\contract\Arrayable;
+use jz\contract\Jsonable;
+use jz\helper\Arr;
 
 /**
  * 数据集管理类

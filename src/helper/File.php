@@ -42,10 +42,11 @@ class File
         }
 
         if (is_file($path)) {
-            $new_path = str_replace(".png", "big.png", $path);
-            copy($path, $new_path);
-            unlink($path);
-            $data[] = $new_path;
+//            $new_path = str_replace(".png", "big.png", $path);
+//            copy($path, $new_path);
+//            unlink($path);
+//            $data[] = $new_path;
+            $data[] = $path;
         }
     }
 
@@ -58,6 +59,7 @@ class File
      */
     public static function getFileList(string $path): array
     {
+        var_dump($path);
         static::searchDir($path, static::$fileList);
         return static::$fileList;
     }
